@@ -1,0 +1,24 @@
+{
+  "name": "ubc-web-services/ws-recipes-base",
+  "description": "Adds base modules and settings for Web Services websites",
+  "keywords": [
+    "recipe",
+    "Drupal recipes",
+    "drupal recipe"
+  ],
+  "type": "drupal-recipe",
+  "license": "GPL-2.0-or-later",
+  "authors": [
+    {
+      "name": "James O'Toole",
+      "role": "Maintainer"
+    }
+  ],
+  "require": {
+    "drupal/core": "^10.4 || ^11",
+    "drupal/admin_toolbar": "*",
+    "drupal/gin": "*",
+    "drupal/gin_login": "*",
+    "drupal/gin_toolbar": "*"
+  }
+}
