@@ -17,8 +17,45 @@
   "require": {
     "drupal/core": "^10.4 || ^11",
     "drupal/admin_toolbar": "*",
+    "drupal/antibot": "*",
+    "drupal/block_exclude_pages": "*",
+    "drupal/chosen": "*",
+    "drupal/config_ignore": "*",
+    "drupal/date_popup": "*",
+    "drupal/dropzonejs": "*",
+    "drupal/easy_breadcrumb": "*",
+    "drupal/file_to_media": "*",
+    "drupal/focal_point": "*",
+    "drupal/formtips": "*",
+    "drupal/fullcalendar_view": "*",
     "drupal/gin": "*",
     "drupal/gin_login": "*",
-    "drupal/gin_toolbar": "*"
+    "drupal/gin_toolbar": "*",
+    "drupal/google_analytics": "*",
+    "drupal/image_widget_crop": "*",
+    "drupal/linkit_media_library": "*",
+    "drupal/media_alias_display": "*",
+    "drupal/menu_block": "*",
+    "drupal/metatag": "*",
+    "drupal/optional_end_date": "*",
+    "drupal/redirect": "*",
+    "drupal/scheduler": "*",
+    "drupal/smtp": "*",
+    "drupal/twig_tweak": "*",
+    "drupal/ubc_chosen_style_tweaks": "*",
+    "drupal/views_autosubmit": "*"
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
