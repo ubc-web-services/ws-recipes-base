@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: card_focal_point_sm
+label: 'Card, focal point, sm'
+effects:
+  dd394a14-57b1-4852-8ae9-dd06a1f1d021:
+    uuid: dd394a14-57b1-4852-8ae9-dd06a1f1d021
+    id: focal_point_crop
+    weight: 1
+    data:
+      width: 380
+      height: 330
+      crop_type: focal_point
+  d40d053f-09fb-4beb-be99-f35dcf37fc52:
+    uuid: d40d053f-09fb-4beb-be99-f35dcf37fc52
+    id: image_convert
+    weight: 2
+    data:
+      extension: webp

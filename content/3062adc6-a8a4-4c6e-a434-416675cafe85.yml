@@ -1,0 +1,41 @@
+_meta:
+  version: '1.0'
+  entity_type: taxonomy_term
+  uuid: 3062adc6-a8a4-4c6e-a434-416675cafe85
+  bundle: admin_background_color_settings
+  default_langcode: en
+default:
+  status:
+    -
+      value: true
+  name:
+    -
+      value: 'Unit Secondary'
+  weight:
+    -
+      value: 0
+  parent:
+    -
+      target_id: 0
+  revision_translation_affected:
+    -
+      value: true
+  metatag:
+    -
+      tag: meta
+      attributes:
+        name: title
+        content: 'Unit Secondary'
+    -
+      tag: link
+      attributes:
+        rel: canonical
+        href: 'http://default/admin-background-color-settings/unit-secondary'
+  path:
+    -
+      alias: /admin-background-color-settings/unit-secondary
+      langcode: en
+      pathauto: 1
+  field_class:
+    -
+      value: 'bg-unit-secondary bg-dark'

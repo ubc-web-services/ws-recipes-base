@@ -1,0 +1,26 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_media_file_2
+    - media.type.ics_file
+  module:
+    - file
+id: media.ics_file.field_media_file_2
+field_name: field_media_file_2
+entity_type: media
+bundle: ics_file
+label: ICS
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: ics-files
+  file_extensions: ics
+  max_filesize: ''
+  description_field: true
+field_type: file

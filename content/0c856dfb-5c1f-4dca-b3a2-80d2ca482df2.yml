@@ -1,0 +1,41 @@
+_meta:
+  version: '1.0'
+  entity_type: taxonomy_term
+  uuid: 0c856dfb-5c1f-4dca-b3a2-80d2ca482df2
+  bundle: admin_icon_position
+  default_langcode: en
+default:
+  status:
+    -
+      value: true
+  name:
+    -
+      value: 'Icon Right'
+  weight:
+    -
+      value: 0
+  parent:
+    -
+      target_id: 0
+  revision_translation_affected:
+    -
+      value: true
+  metatag:
+    -
+      tag: meta
+      attributes:
+        name: title
+        content: 'Icon Right'
+    -
+      tag: link
+      attributes:
+        rel: canonical
+        href: 'http://default/admin-icon-position/icon-right'
+  path:
+    -
+      alias: /admin-icon-position/icon-right
+      langcode: en
+      pathauto: 1
+  field_class:
+    -
+      value: flex-row-reverse

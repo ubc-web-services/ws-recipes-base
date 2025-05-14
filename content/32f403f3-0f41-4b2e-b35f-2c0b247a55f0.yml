@@ -1,0 +1,41 @@
+_meta:
+  version: '1.0'
+  entity_type: taxonomy_term
+  uuid: 32f403f3-0f41-4b2e-b35f-2c0b247a55f0
+  bundle: admin_icon_settings
+  default_langcode: en
+default:
+  status:
+    -
+      value: true
+  name:
+    -
+      value: 'Settings (gear)'
+  weight:
+    -
+      value: 0
+  parent:
+    -
+      target_id: 0
+  revision_translation_affected:
+    -
+      value: true
+  metatag:
+    -
+      tag: meta
+      attributes:
+        name: title
+        content: 'Settings (gear)'
+    -
+      tag: link
+      attributes:
+        rel: canonical
+        href: 'http://default/admin-icon-settings/settings-gear'
+  path:
+    -
+      alias: /admin-icon-settings/settings-gear
+      langcode: en
+      pathauto: 1
+  field_id:
+    -
+      value: icon-settings

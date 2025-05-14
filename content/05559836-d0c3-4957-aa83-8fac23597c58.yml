@@ -1,0 +1,41 @@
+_meta:
+  version: '1.0'
+  entity_type: taxonomy_term
+  uuid: 05559836-d0c3-4957-aa83-8fac23597c58
+  bundle: admin_icon_settings
+  default_langcode: en
+default:
+  status:
+    -
+      value: true
+  name:
+    -
+      value: Vimeo
+  weight:
+    -
+      value: 0
+  parent:
+    -
+      target_id: 0
+  revision_translation_affected:
+    -
+      value: true
+  metatag:
+    -
+      tag: meta
+      attributes:
+        name: title
+        content: 'Vimeo'
+    -
+      tag: link
+      attributes:
+        rel: canonical
+        href: 'http://default/admin-icon-settings/vimeo'
+  path:
+    -
+      alias: /admin-icon-settings/vimeo
+      langcode: en
+      pathauto: 1
+  field_id:
+    -
+      value: icon-vimeo

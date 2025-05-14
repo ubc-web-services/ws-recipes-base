@@ -1,0 +1,41 @@
+_meta:
+  version: '1.0'
+  entity_type: taxonomy_term
+  uuid: 278aa64b-6e61-4308-bc7e-18334871898f
+  bundle: admin_icon_settings
+  default_langcode: en
+default:
+  status:
+    -
+      value: true
+  name:
+    -
+      value: Search
+  weight:
+    -
+      value: 0
+  parent:
+    -
+      target_id: 0
+  revision_translation_affected:
+    -
+      value: true
+  metatag:
+    -
+      tag: meta
+      attributes:
+        name: title
+        content: 'Search'
+    -
+      tag: link
+      attributes:
+        rel: canonical
+        href: 'http://default/admin-icon-settings/search'
+  path:
+    -
+      alias: /admin-icon-settings/search
+      langcode: en
+      pathauto: 1
+  field_id:
+    -
+      value: icon-search

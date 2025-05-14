@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: hero_focal_point_1300
+label: 'Hero, focal point, 1300'
+effects:
+  3bd36d37-80c9-47bb-a4fe-863e3a1811bd:
+    uuid: 3bd36d37-80c9-47bb-a4fe-863e3a1811bd
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 1300
+      height: 406
+      crop_type: focal_point
+  fb925110-fe48-4303-957c-8f8e68976fdf:
+    uuid: fb925110-fe48-4303-957c-8f8e68976fdf
+    id: image_convert
+    weight: 2
+    data:
+      extension: webp

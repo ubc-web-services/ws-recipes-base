@@ -4,6 +4,8 @@ type: "Site"
 install:
   # core
   - block
+  - block_content
+  - breakpoint
   - ckeditor5
   - contextual
   - file
@@ -13,6 +15,7 @@ install:
   - media_library
   - menu_ui
   - path
+  - responsive_image
   - rest
   - taxonomy
   - toolbar
@@ -25,6 +28,7 @@ install:
   - chosen
   - ckeditor5_fullscreen
   - config_ignore
+  - crop
   - date_popup
   - dropzonejs
   - editor_advanced_link
@@ -42,11 +46,17 @@ install:
   - kraken
   - linkit
   - linkit_media_library
+  - media_bulk_upload_dropzonejs
   - media_alias_display
+  - media_bulk_upload
+  - media_entity_file_replace
   - menu_block
   - metatag
+  - metatag_open_graph
+  - metatag_twitter_cards
   - node_revision_delete
   - optional_end_date
+  - pathauto
   - quick_node_clone
   - rebuild_cache_access
   - redirect
@@ -54,9 +64,11 @@ install:
   - role_delegation
   - scheduler
   - smtp
+  - svg_image
   - twig_tweak
   - ubc_chosen_style_tweaks
   - ubc_ckeditor_widgets
+  - ubc_media_entities
   - view_unpublished
   - views_autosubmit
   - webform
@@ -81,9 +93,7 @@ config:
     metatag: "*"
     redirect: "*"
     responsive_table_filter: "*"
-    scheduler:
-      - scheduler.settings
-      - views.view.scheduler_scheduled_content
+    scheduler: "*"
     simple_sitemap: "*"
     ubc_ckeditor_widgets: "*"
     webform: "*"
@@ -167,20 +177,120 @@ config:
     block.block.kraken_primary_local_tasks:
       simple_config_update:
         status: false
-    # ROLE add editor role
+    # MEDIA enable standalone media settings
+    media.settings:
+      simple_config_update:
+        standalone_url: 1
+    # RESPONSIVE IMAGE wide image style
+    responsive_image.styles.wide:
+      ensure_exists:
+        langcode: en
+        status: true
+        dependencies:
+          config:
+            - image.style.max_1300x1300
+            - image.style.max_2600x2600
+            - image.style.max_970x970
+            - image.style.max_650x650
+            - image.style.max_325x325
+        id: wide
+        label: Wide
+        image_style_mappings:
+          -
+            image_mapping_type: image_style
+            image_mapping: max_650x650
+            breakpoint_id: kraken.micro
+            multiplier: 1x
+          -
+            image_mapping_type: image_style
+            image_mapping: max_970x970
+            breakpoint_id: kraken.sm
+            multiplier: 1x
+          -
+            image_mapping_type: image_style
+            image_mapping: max_1300x1300
+            breakpoint_id: kraken.md
+            multiplier: 1x
+          -
+            image_mapping_type: image_style
+            image_mapping: max_2600x2600
+            breakpoint_id: kraken.lg
+            multiplier: 1x
+          -
+            image_mapping_type: image_style
+            image_mapping: max_2600x2600
+            breakpoint_id: kraken.xl
+            multiplier: 1x
+          -
+            image_mapping_type: image_style
+            image_mapping: max_2600x2600
+            breakpoint_id: kraken.xxl
+            multiplier: 1x
+        breakpoint_group: kraken
+        fallback_image_style: max_325x325
+    # RESPONSIVE IMAGE narrow image style
+    responsive_image.styles.narrow:
+      ensure_exists:
+        langcode: en
+        status: true
+        dependencies:
+          config:
+            - image.style.max_1300x1300
+            - image.style.max_2600x2600
+            - image.style.max_970x970
+        id: narrow
+        label: Narrow
+        image_style_mappings:
+          -
+            image_mapping_type: image_style
+            image_mapping: max_325x325
+            breakpoint_id: kraken.micro
+            multiplier: 1x
+          -
+            image_mapping_type: image_style
+            image_mapping: max_325x325
+            breakpoint_id: kraken.sm
+            multiplier: 1x
+          -
+            image_mapping_type: image_style
+            image_mapping: max_650x650
+            breakpoint_id: kraken.md
+            multiplier: 1x
+          -
+            image_mapping_type: image_style
+            image_mapping: max_970x970
+            breakpoint_id: kraken.lg
+            multiplier: 1x
+          -
+            image_mapping_type: image_style
+            image_mapping: max_970x970
+            breakpoint_id: kraken.xl
+            multiplier: 1x
+          -
+            image_mapping_type: image_style
+            image_mapping: max_1300x1300
+            breakpoint_id: kraken.xxl
+            multiplier: 1x
+        breakpoint_group: kraken
+        fallback_image_style: max_325x325
+    # ROLE assign permissions
+    user.role.anonymous:
+      grantPermissions:
+        - 'view media'
+    # ROLE add editor role and assign permissions
     user.role.editor:
       createIfNotExists:
         id: editor
         label: Editor
         weight: 6
         is_admin: false
-      # grant permissions from enabled core modules
       grantPermissions:
         - 'access administration pages'
         - 'access block library'
         - 'access content overview'
         - 'access contextual links'
         - 'access files overview'
+        - 'access media overview'
         - 'access site in maintenance mode'
         - 'access taxonomy overview'
         - 'access toolbar'
@@ -195,29 +305,153 @@ config:
         - 'change own username'
         - 'create url aliases'
         - 'delete any file'
+        - 'delete any media'
+        - 'delete media'
+        - 'dropzone upload files'
         - 'select account cancellation method'
+        - 'update any media'
+        - 'update media'
+        - 'use bulk_upload_documents bulk upload form'
+        - 'use bulk_upload_images bulk upload form'
         - 'use text format filtered_text'
+        - 'view all media revisions'
+        - 'view media'
+        - 'view own unpublished media'
         - 'view the administration theme'
-    # ROLE add content_creator role
+        - 'create audio media'
+        - 'delete any audio media'
+        - 'delete own audio media'
+        - 'edit any audio media'
+        - 'edit own audio media'
+        - 'view any audio media revisions'
+        - 'delete any audio media revisions'
+        - 'revert any audio media revisions'
+        - 'create file media'
+        - 'delete any file media'
+        - 'delete own file media'
+        - 'edit any file media'
+        - 'edit own file media'
+        - 'view any file media revisions'
+        - 'delete any file media revisions'
+        - 'revert any file media revisions'
+        - 'create ics_file media'
+        - 'delete any ics_file media'
+        - 'delete own ics_file media'
+        - 'edit any ics_file media'
+        - 'edit own ics_file media'
+        - 'view any ics_file media revisions'
+        - 'delete any ics_file media revisions'
+        - 'revert any ics_file media revisions'
+        - 'create image media'
+        - 'delete any image media'
+        - 'delete own image media'
+        - 'edit any image media'
+        - 'edit own image media'
+        - 'view any image media revisions'
+        - 'delete any image media revisions'
+        - 'revert any image media revisions'
+        - 'create private_file media'
+        - 'delete any private_file media'
+        - 'delete own private_file media'
+        - 'edit any private_file media'
+        - 'edit own private_file media'
+        - 'view any private_file media revisions'
+        - 'delete any private_file media revisions'
+        - 'revert any private_file media revisions'
+        - 'create remote_video media'
+        - 'delete any remote_video media'
+        - 'delete own remote_video media'
+        - 'edit any remote_video media'
+        - 'edit own remote_video media'
+        - 'view any remote_video media revisions'
+        - 'delete any remote_video media revisions'
+        - 'revert any remote_video media revisions'
+        - 'create svg_icon media'
+        - 'delete any svg_icon media'
+        - 'delete own svg_icon media'
+        - 'edit any svg_icon media'
+        - 'edit own svg_icon media'
+        - 'view any svg_icon media revisions'
+        - 'delete any svg_icon media revisions'
+        - 'revert any svg_icon media revisions'
+    # ROLE add content_creator role and assign permissions
     user.role.content_creator:
       createIfNotExists:
         id: content_creator
         label: Content Creator
         weight: 5
         is_admin: false
-      # grant permissions from enabled core modules
       grantPermissions:
         - 'access administration pages'
         - 'access content overview'
         - 'access files overview'
+        - 'access media overview'
         - 'access site in maintenance mode'
         - 'access taxonomy overview'
         - 'access toolbar'
         - 'administer menu'
         - 'administer url aliases'
         - 'create url aliases'
+        - 'delete any media'
+        - 'delete media'
+        - 'dropzone upload files'
+        - 'update any media'
+        - 'update media'
+        - 'use bulk_upload_documents bulk upload form'
+        - 'use bulk_upload_images bulk upload form'
         - 'use text format filtered_text'
+        - 'view all media revisions'
+        - 'view media'
+        - 'view own unpublished media'
         - 'view the administration theme'
+        - 'create file media'
+        - 'delete any file media'
+        - 'delete own file media'
+        - 'edit any file media'
+        - 'edit own file media'
+        - 'view any file media revisions'
+        - 'delete any file media revisions'
+        - 'revert any file media revisions'
+        - 'create ics_file media'
+        - 'delete any ics_file media'
+        - 'delete own ics_file media'
+        - 'edit any ics_file media'
+        - 'edit own ics_file media'
+        - 'view any ics_file media revisions'
+        - 'delete any ics_file media revisions'
+        - 'revert any ics_file media revisions'
+        - 'create image media'
+        - 'delete any image media'
+        - 'delete own image media'
+        - 'edit any image media'
+        - 'edit own image media'
+        - 'view any image media revisions'
+        - 'delete any image media revisions'
+        - 'revert any image media revisions'
+        - 'create private_file media'
+        - 'delete any private_file media'
+        - 'delete own private_file media'
+        - 'edit any private_file media'
+        - 'edit own private_file media'
+        - 'view any private_file media revisions'
+        - 'delete any private_file media revisions'
+        - 'revert any private_file media revisions'
+        - 'create remote_video media'
+        - 'delete any remote_video media'
+        - 'delete own remote_video media'
+        - 'edit any remote_video media'
+        - 'edit own remote_video media'
+        - 'view any remote_video media revisions'
+        - 'delete any remote_video media revisions'
+        - 'revert any remote_video media revisions'
+        - 'create svg_icon media'
+        - 'delete any svg_icon media'
+        - 'delete own svg_icon media'
+        - 'edit any svg_icon media'
+        - 'edit own svg_icon media'
+        - 'view any svg_icon media revisions'
+        - 'delete any svg_icon media revisions'
+        - 'revert any svg_icon media revisions'
     # ROLE admin role weight
     user.role.administrator:
       simple_config_update:
@@ -265,6 +499,81 @@ config:
         tags.twitter_cards_page_url: '[node:url]'
         tags.twitter_cards_title: '[node:title]'
         tags.twitter_cards_type: 'summary'
+    # MEDIA - REMOTE VIDEO alter default view mode
+    core.entity_view_display.media.remote_video.default:
+      setComponents:
+        -
+          name: field_media_oembed_video
+          options:
+            type: oembed
+            label: hidden
+            settings:
+              max_width: 900
+              max_height: 506
+              loading:
+                attribute: lazy
+            third_party_settings: {  }
+            weight: 0
+            region: content
+        -
+          name: thumbnail
+          options:
+            type: image
+            label: hidden
+            settings:
+              image_link: ''
+              image_style: video_thumbnail
+              image_loading:
+                attribute: lazy
+            third_party_settings: {  }
+            weight: 0
+            region: content
+    # MEDIA - SVG add icon_large image style
+    image.style.icon_large:
+      createIfNotExists:
+        langcode: en
+        status: true
+        dependencies: {  }
+        name: icon_large
+        label: 'Icon, large'
+        effects:
+          f9973a7b-6e05-4c2a-983b-ad1c5816b4e0:
+            uuid: f9973a7b-6e05-4c2a-983b-ad1c5816b4e0
+            id: image_scale_and_crop
+            weight: 1
+            data:
+              width: 96
+              height: 96
+              anchor: center-center
+    # MEDIA - SVG addd icon_small image style
+    image.style.icon_small:
+      createIfNotExists:
+        langcode: en
+        status: true
+        dependencies: {  }
+        name: icon_small
+        label: 'Icon, small'
+        effects:
+          aed7f070-e2f5-44a1-965c-4d1564f3bc2b:
+            uuid: aed7f070-e2f5-44a1-965c-4d1564f3bc2b
+            id: image_scale_and_crop
+            weight: 1
+            data:
+              width: 24
+              height: 24
+              anchor: center-center
+    # MEDIA - SVG alter icon_small view mode
+    core.entity_view_mode.media.small_icon:
+      createIfNotExists:
+        langcode: en
+        status: true
+        dependencies:
+          module:
+            - media
+        id: media.small_icon
+        label: 'Small icon'
+        targetEntityType: media
+        cache: true
     # NODE_REVISION_DELETE settings
     node_revision_delete.settings:
       simple_config_update:

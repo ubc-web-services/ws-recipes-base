@@ -1,0 +1,41 @@
+_meta:
+  version: '1.0'
+  entity_type: taxonomy_term
+  uuid: 20679e5c-d8ad-4b00-9a30-4144b3d52f39
+  bundle: admin_postion_settings
+  default_langcode: en
+default:
+  status:
+    -
+      value: true
+  name:
+    -
+      value: 'Text Top Center'
+  weight:
+    -
+      value: 0
+  parent:
+    -
+      target_id: 0
+  revision_translation_affected:
+    -
+      value: true
+  metatag:
+    -
+      tag: meta
+      attributes:
+        name: title
+        content: 'Text Top Center'
+    -
+      tag: link
+      attributes:
+        rel: canonical
+        href: 'http://default/admin-postion-settings/text-top-center'
+  path:
+    -
+      alias: /admin-postion-settings/text-top-center
+      langcode: en
+      pathauto: 1
+  field_class:
+    -
+      value: text-center

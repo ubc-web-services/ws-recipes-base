@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_form_mode.media.media_library
+    - field.field.media.ics_file.field_media_file_2
+    - media.type.ics_file
+id: media.ics_file.media_library
+targetEntityType: media
+bundle: ics_file
+mode: media_library
+content: {  }
+hidden:
+  created: true
+  field_media_file_2: true
+  name: true
+  path: true
+  publish_on: true
+  replace_file: true
+  status: true
+  uid: true
+  unpublish_on: true

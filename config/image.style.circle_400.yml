@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies: {  }
+name: circle_400
+label: 'Circle, 400'
+effects:
+  3a2293de-7a02-492f-b2ca-67df7ccdf86b:
+    uuid: 3a2293de-7a02-492f-b2ca-67df7ccdf86b
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 400
+      height: 400
+      anchor: center-center
+  5292598f-e375-4b8f-a8fd-4ced165e9979:
+    uuid: 5292598f-e375-4b8f-a8fd-4ced165e9979
+    id: image_convert
+    weight: 2
+    data:
+      extension: webp

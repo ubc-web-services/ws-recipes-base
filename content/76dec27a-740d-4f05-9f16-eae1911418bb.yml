@@ -1,0 +1,41 @@
+_meta:
+  version: '1.0'
+  entity_type: taxonomy_term
+  uuid: 76dec27a-740d-4f05-9f16-eae1911418bb
+  bundle: admin_width_settings
+  default_langcode: en
+default:
+  status:
+    -
+      value: true
+  name:
+    -
+      value: Contained
+  weight:
+    -
+      value: 0
+  parent:
+    -
+      target_id: 0
+  revision_translation_affected:
+    -
+      value: true
+  metatag:
+    -
+      tag: meta
+      attributes:
+        name: title
+        content: 'Contained'
+    -
+      tag: link
+      attributes:
+        rel: canonical
+        href: 'http://default/admin-horizontal-spacing-settings/contained'
+  path:
+    -
+      alias: /admin-horizontal-spacing-settings/contained
+      langcode: en
+      pathauto: 1
+  field_class:
+    -
+      value: 'container px-4 mx-auto md--px-0'

@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies: {  }
+name: max_325x325
+label: 'Max 325x325'
+effects:
+  a7383657-ecdc-4994-b992-ee375b97f64e:
+    uuid: a7383657-ecdc-4994-b992-ee375b97f64e
+    id: image_scale
+    weight: 1
+    data:
+      width: 325
+      height: 325
+      upscale: false
+  a53118a5-3148-45d4-bc41-79a6c2e1f5a0:
+    uuid: a53118a5-3148-45d4-bc41-79a6c2e1f5a0
+    id: image_convert
+    weight: 2
+    data:
+      extension: webp

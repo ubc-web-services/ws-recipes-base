@@ -1,0 +1,41 @@
+_meta:
+  version: '1.0'
+  entity_type: taxonomy_term
+  uuid: f27fdf2f-1135-4870-be73-2ef4f5f908bb
+  bundle: admin_background_color_settings
+  default_langcode: en
+default:
+  status:
+    -
+      value: true
+  name:
+    -
+      value: 'UBC Blue: Cobalt'
+  weight:
+    -
+      value: 0
+  parent:
+    -
+      target_id: 0
+  revision_translation_affected:
+    -
+      value: true
+  metatag:
+    -
+      tag: meta
+      attributes:
+        name: title
+        content: 'UBC Blue: Cobalt'
+    -
+      tag: link
+      attributes:
+        rel: canonical
+        href: 'http://default/taxonomy/term/9'
+  path:
+    -
+      alias: ''
+      langcode: en
+      pathauto: 1
+  field_class:
+    -
+      value: 'bg-ubc-blue-cobalt bg-dark'

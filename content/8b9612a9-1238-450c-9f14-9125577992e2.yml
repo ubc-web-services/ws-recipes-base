@@ -1,0 +1,41 @@
+_meta:
+  version: '1.0'
+  entity_type: taxonomy_term
+  uuid: 8b9612a9-1238-450c-9f14-9125577992e2
+  bundle: admin_icon_settings
+  default_langcode: en
+default:
+  status:
+    -
+      value: true
+  name:
+    -
+      value: 'Arrow in circle'
+  weight:
+    -
+      value: 0
+  parent:
+    -
+      target_id: 0
+  revision_translation_affected:
+    -
+      value: true
+  metatag:
+    -
+      tag: meta
+      attributes:
+        name: title
+        content: 'Arrow in circle'
+    -
+      tag: link
+      attributes:
+        rel: canonical
+        href: 'http://default/admin-icon-settings/arrow-circle'
+  path:
+    -
+      alias: /admin-icon-settings/arrow-circle
+      langcode: en
+      pathauto: 1
+  field_id:
+    -
+      value: icon-arrow-circle

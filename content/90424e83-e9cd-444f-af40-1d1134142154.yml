@@ -1,0 +1,41 @@
+_meta:
+  version: '1.0'
+  entity_type: taxonomy_term
+  uuid: 90424e83-e9cd-444f-af40-1d1134142154
+  bundle: admin_icon_settings
+  default_langcode: en
+default:
+  status:
+    -
+      value: true
+  name:
+    -
+      value: Star
+  weight:
+    -
+      value: 0
+  parent:
+    -
+      target_id: 0
+  revision_translation_affected:
+    -
+      value: true
+  metatag:
+    -
+      tag: meta
+      attributes:
+        name: title
+        content: 'Star'
+    -
+      tag: link
+      attributes:
+        rel: canonical
+        href: 'http://default/admin-icon-settings/star'
+  path:
+    -
+      alias: /admin-icon-settings/star
+      langcode: en
+      pathauto: 1
+  field_id:
+    -
+      value: icon-star

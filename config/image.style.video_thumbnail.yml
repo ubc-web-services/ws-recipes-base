@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies: {  }
+name: video_thumbnail
+label: 'Video thumbnail'
+effects:
+  5c2acded-7aed-40d4-a6cc-d12164bb6750:
+    uuid: 5c2acded-7aed-40d4-a6cc-d12164bb6750
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 900
+      height: 506
+      anchor: center-center
+  d17433df-1a5f-4323-9943-f7020083d3d8:
+    uuid: d17433df-1a5f-4323-9943-f7020083d3d8
+    id: image_convert
+    weight: 2
+    data:
+      extension: webp

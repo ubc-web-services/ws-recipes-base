@@ -1,0 +1,41 @@
+_meta:
+  version: '1.0'
+  entity_type: taxonomy_term
+  uuid: 23b5224a-72fc-40b5-80e0-c9a63b761edb
+  bundle: admin_vertical_spacing_settings
+  default_langcode: en
+default:
+  status:
+    -
+      value: true
+  name:
+    -
+      value: 'Padding: Loose'
+  weight:
+    -
+      value: 0
+  parent:
+    -
+      target_id: 0
+  revision_translation_affected:
+    -
+      value: true
+  metatag:
+    -
+      tag: meta
+      attributes:
+        name: title
+        content: 'Padding: Loose'
+    -
+      tag: link
+      attributes:
+        rel: canonical
+        href: 'http://default/admin-spacing-settings/padding-loose'
+  path:
+    -
+      alias: /admin-spacing-settings/padding-loose
+      langcode: en
+      pathauto: 1
+  field_class:
+    -
+      value: py-16

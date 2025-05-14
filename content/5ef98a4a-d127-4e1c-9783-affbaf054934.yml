@@ -1,0 +1,41 @@
+_meta:
+  version: '1.0'
+  entity_type: taxonomy_term
+  uuid: 5ef98a4a-d127-4e1c-9783-affbaf054934
+  bundle: admin_postion_settings
+  default_langcode: en
+default:
+  status:
+    -
+      value: true
+  name:
+    -
+      value: 'Text Middle Right'
+  weight:
+    -
+      value: 0
+  parent:
+    -
+      target_id: 0
+  revision_translation_affected:
+    -
+      value: true
+  metatag:
+    -
+      tag: meta
+      attributes:
+        name: title
+        content: 'Text Middle Right'
+    -
+      tag: link
+      attributes:
+        rel: canonical
+        href: 'http://default/admin-postion-settings/text-middle-right'
+  path:
+    -
+      alias: /admin-postion-settings/text-middle-right
+      langcode: en
+      pathauto: 1
+  field_class:
+    -
+      value: 'place-content-center text-right'

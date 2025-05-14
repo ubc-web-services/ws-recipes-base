@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies: {  }
+name: circle_600
+label: 'Circle, 600'
+effects:
+  6af6c307-cd5a-4eec-8e60-9bb493306992:
+    uuid: 6af6c307-cd5a-4eec-8e60-9bb493306992
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 600
+      height: 600
+      anchor: center-center
+  f2b4f387-0ff9-45c1-91ba-d26738566dbe:
+    uuid: f2b4f387-0ff9-45c1-91ba-d26738566dbe
+    id: image_convert
+    weight: 2
+    data:
+      extension: webp
