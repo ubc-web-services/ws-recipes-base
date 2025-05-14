@@ -2,69 +2,287 @@ name: "Web Services Base"
 description: "Add base settings for UBC Web Services websites"
 type: "Site"
 install:
-    # Install core dependencies.
-  - config
-  - help
-  # Install Claro as it is a dependency of Gin, but don't import config.
-  - claro
-  # Install Toolbar as it is a dependency of Gin Toolbar.
+  # core
+  - block
+  - ckeditor5
+  - contextual
+  - file
+  - image
+  - jsonapi
+  - media
+  - media_library
+  - menu_ui
+  - path
+  - rest
+  - taxonomy
   - toolbar
+  - user
+  # contrib
   - admin_toolbar
-  - admin_toolbar_search
   - admin_toolbar_tools
-  # Install Gin theme and base modules that extend it.
+  - antibot
+  - block_exclude_pages
+  - chosen
+  - ckeditor5_fullscreen
+  - config_ignore
+  - date_popup
+  - dropzonejs
+  - editor_advanced_link
+  - easy_breadcrumb
+  - file_delete
+  - file_to_media
+  - focal_point
+  - formtips
+  - fullcalendar_view
   - gin
   - gin_login
   - gin_toolbar
+  - google_analytics
+  - image_widget_crop
+  - kraken
+  - linkit
+  - linkit_media_library
+  - media_alias_display
+  - menu_block
+  - metatag
+  - node_revision_delete
+  - optional_end_date
+  - quick_node_clone
+  - rebuild_cache_access
+  - redirect
+  - responsive_table_filter
+  - role_delegation
+  - scheduler
+  - smtp
+  - twig_tweak
+  - ubc_chosen_style_tweaks
+  - ubc_ckeditor_widgets
+  - view_unpublished
+  - views_autosubmit
+  - webform
+  - webform_node
+  - webform_ui
 config:
   import:
-    # Import all of Admin Toolbar's modules config.
-    admin_toolbar: '*'
-    admin_toolbar_search: '*'
-    admin_toolbar_tools: '*'
-    # Import all of Gin and Gin Login's config.
-    # Gin Toolbar does not have any config.
-    gin:
-      - gin.settings
-      - block.block.gin_breadcrumbs
-      - block.block.gin_content
-      - block.block.gin_help
-      - block.block.gin_local_actions
-      - block.block.gin_messages
-      - block.block.gin_page_title
-      - block.block.gin_primary_local_tasks
-    gin_login: '*'
+    ckeditor5:
+      - editor.editor.filtered_text.yml
+      - filter.format.filtered_text.yml
+      - editor.editor.simple.yml
+      - filter.format.simple.yml
+    config_ignore: "*"
+    dropzonejs: "*"
+    editor_advanced_link: "*"
+    focal_point: "*"
+    fullcalendar_view: "*"
+    google_analytics: "*"
+    image_widget_crop: "*"
+    kraken: "*"
+    linkit: "*"
+    metatag: "*"
+    redirect: "*"
+    responsive_table_filter: "*"
+    scheduler:
+      - scheduler.settings
+      - views.view.scheduler_scheduled_content
+    simple_sitemap: "*"
+    ubc_ckeditor_widgets: "*"
+    webform: "*"
+    webform_node: "*"
   actions:
-    # Set and unset Gin blocks.
-    block.block.gin_admin:
-      simple_config_update:
-        status: false
-    block.block.gin_branding:
-      simple_config_update:
-        status: false
-    block.block.gin_local_actions:
-      simple_config_update:
-        region: content
-        weight: -10
-    block.block.gin_local_tasks:
-      simple_config_update:
-        status: false
-    block.block.gin_page_title:
-      simple_config_update:
-        region: header
-        weight: -10
-    block.block.gin_primary_local_tasks:
-      simple_config_update:
-        region: header
-        weight: -5
-        settings.secondary: true
-    block.block.gin_tools:
-      simple_config_update:
-        status: false
-    # Update the admin theme to Gin in Theme settings.
-    node.settings:
-      simple_config_update:
-        use_admin_theme: true
+    # THEME set themes
     system.theme:
       simple_config_update:
         admin: gin
+        default: kraken
+    # GIN configure blocks
+    block.block.gin_help:
+      simple_config_update:
+        region: help
+    block.block.gin_primary_local_tasks:
+      simple_config_update:
+        region: header
+    block.block.gin_secondary_local_tasks:
+      simple_config_update:
+        region: pre_content
+    block.block.gin_primary_admin_actions:
+      simple_config_update:
+        region: content
+    # GIN disable unneeded blocks
+    block.block.gin_search_form_wide:
+      simple_config_update:
+        status: false
+    block.block.gin_search_form_narrow:
+      simple_config_update:
+        status: false
+    block.block.gin_account_menu:
+      simple_config_update:
+        status: false
+    block.block.gin_main_menu:
+      simple_config_update:
+        status: false
+    block.block.gin_powered:
+      simple_config_update:
+        status: false
+    block.block.gin_syndicate:
+      simple_config_update:
+        status: false
+    block.block.gin_site_branding:
+      simple_config_update:
+        status: false
+    # KRAKEN configure blocks
+    block.block.kraken_help:
+      simple_config_update:
+        region: help
+    block.block.kraken_messages:
+      simple_config_update:
+        region: help
+    # KRAKEN disable unneeded blocks
+    block.block.kraken_page_title:
+      simple_config_update:
+        status: false
+    block.block.kraken_powered:
+      simple_config_update:
+        status: false
+    block.block.kraken_search_form_wide:
+      simple_config_update:
+        status: false
+    block.block.kraken_search_form_narrow:
+      simple_config_update:
+        status: false
+    block.block.kraken_account_menu:
+      simple_config_update:
+        status: false
+    block.block.kraken_syndicate:
+      simple_config_update:
+        status: false
+    block.block.kraken_site_branding:
+      simple_config_update:
+        status: false
+    block.block.kraken_content:
+      simple_config_update:
+        status: false
+    block.block.kraken_primary_admin_actions:
+      simple_config_update:
+        status: false
+    block.block.kraken_primary_local_tasks:
+      simple_config_update:
+        status: false
+    # ROLE add editor role
+    user.role.editor:
+      createIfNotExists:
+        id: editor
+        label: Editor
+        weight: 6
+        is_admin: false
+      # grant permissions from enabled core modules
+      grantPermissions:
+        - 'access administration pages'
+        - 'access block library'
+        - 'access content overview'
+        - 'access contextual links'
+        - 'access files overview'
+        - 'access site in maintenance mode'
+        - 'access taxonomy overview'
+        - 'access toolbar'
+        - 'access user profiles'
+        - 'administer blocks'
+        - 'administer menu'
+        - 'administer nodes'
+        - 'administer themes'
+        - 'administer url aliases'
+        - 'administer users'
+        - 'cancel account'
+        - 'change own username'
+        - 'create url aliases'
+        - 'delete any file'
+        - 'select account cancellation method'
+        - 'use text format filtered_text'
+        - 'view the administration theme'
+    # ROLE add content_creator role
+    user.role.content_creator:
+      createIfNotExists:
+        id: content_creator
+        label: Content Creator
+        weight: 5
+        is_admin: false
+      # grant permissions from enabled core modules
+      grantPermissions:
+        - 'access administration pages'
+        - 'access content overview'
+        - 'access files overview'
+        - 'access site in maintenance mode'
+        - 'access taxonomy overview'
+        - 'access toolbar'
+        - 'administer menu'
+        - 'administer url aliases'
+        - 'create url aliases'
+        - 'use text format filtered_text'
+        - 'view the administration theme'
+    # ROLE admin role weight
+    user.role.administrator:
+      simple_config_update:
+        weight: 10
+    # ANTIBOT settings
+    antibot.settings:
+      simple_config_update:
+        form_ids:
+          - 'comment_*'
+          - user_login_form
+          - user_pass
+          - user_register_form
+          - 'contact_message_*'
+          - 'webform_*'
+    # CHOSEN settings
+    chosen.settings:
+      simple_config_update:
+        minimum_single: '0'
+        minimum_multiple: '0'
+        max_shown_results: '20'
+        minimum_width: '100'
+        use_relative_width: 'true'
+        search_contains: 'true'
+        chosen_include: '0'
+    # METATAG settings
+    metatag.metatag_defaults.global:
+      simple_config_update:
+        tags.canonical_url: '[current-page:url]'
+        tags.title: '[current-page:title] | [site:name]'
+    metatag.metatag_defaults.front:
+      simple_config_update:
+        tags.canonical_url: '[node:url]'
+        tags.description: '[node:summary]'
+        tags.title: '[node:title] | [site:name]'
+    metatag.metatag_defaults.node:
+      simple_config_update:
+        tags.canonical_url: '[node:url]'
+        tags.description: '[node:summary]'
+        tags.title: '[node:title] | [site:name]'
+        tags.og_description: '[node:summary]'
+        tags.og_site_name: '[site:name]'
+        tags.og_title: '[node:title]'
+        tags.og_url: '[node:url]'
+        tags.twitter_cards_description: '[node:summary]'
+        tags.twitter_cards_page_url: '[node:url]'
+        tags.twitter_cards_title: '[node:title]'
+        tags.twitter_cards_type: 'summary'
+    # NODE_REVISION_DELETE settings
+    node_revision_delete.settings:
+      simple_config_update:
+        node_revision_delete_time: '0'
+        delete_newer: 'false'
+    # SCHEDULER settings
+    scheduler.settings:
+      simple_config_update:
+        allow_date_only: 1
+        default_time: '00:00'
+        hide_seconds: 1
+    # SMTP settings
+    smtp.settings:
+      simple_config_update:
+        smtp_on: 1
+        smtp_host: 'smtp.mail.ubc.ca'
+        smtp_port: 587
+        smtp_protocol: 'tls'
+        smtp_autotls: 1
+        smtp_username: 'ubcuit-a-UBCITWSNR'
+        smtp_client_helo: 'mail.ubc.ca'
