@@ -14,6 +14,48 @@
       "role": "Maintainer"
     }
   ],
+  "repositories": [
+        {
+            "type": "composer",
+            "url": "https://packages.drupal.org/8"
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "fengyuanchen/cropper",
+                "version": "4.0.0",
+                "type": "drupal-library",
+                "dist": {
+                    "url": "https://github.com/fengyuanchen/cropper/archive/v4.0.0.zip",
+                    "type": "zip"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "enyo/dropzone",
+                "version": "6.0.0-beta.2",
+                "type": "drupal-library",
+                "dist": {
+                    "url": "https://github.com/dropzone/dropzone/releases/download/v6.0.0-beta.2/dist.zip",
+                    "type": "zip"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "exif-js/exif-js",
+                "version": "v2.3.0",
+                "type": "drupal-library",
+                "dist": {
+                    "type": "zip",
+                    "url": "https://github.com/exif-js/exif-js/archive/refs/tags/v2.3.0.zip"
+                }
+            }
+        }
+  ],
   "require": {
     "drupal/core": "^10.4 || ^11",
     "drupal/address": "*",
@@ -75,7 +117,13 @@
     "drupal/view_unpublished": "^1.0",
     "drupal/views_autosubmit": "*",
     "drupal/views_bulk_edit": "^2.6",
-    "drupal/webform": "^6.2"
+    "drupal/webform": "^6.2",
+    "enyo/dropzone": "^6.0@beta",
+    "exif-js/exif-js": "^2.3",
+    "ubc-web-services/kraken": "^4.0",
+    "ubc-web-services/ubc_chosen_style_tweaks": "^1.1",
+    "ubc-web-services/ubc_ckeditor_widgets": "^4.0",
+    "ubc-web-services/ubc_d8_config_modules": "^8.0"
   }
 }
 
