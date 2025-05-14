@@ -72,7 +72,6 @@
     "drupal/smart_date": "^4.2",
     "drupal/smtp": "*",
     "drupal/twig_tweak": "*",
-    "drupal/ubc_chosen_style_tweaks": "*",
     "drupal/view_unpublished": "^1.0",
     "drupal/views_autosubmit": "*",
     "drupal/views_bulk_edit": "^2.6",
