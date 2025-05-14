@@ -74,10 +74,7 @@
     "drupal/view_unpublished": "^1.0",
     "drupal/views_autosubmit": "*",
     "drupal/views_bulk_edit": "^2.6",
-    "drupal/webform": "^6.2",
-    "ubc-web-services/ubc_chosen_style_tweaks": "^1.1",
-    "ubc-web-services/ubc_ckeditor_widgets": "^4.0",
-    "ubc-web-services/ubc_d8_config_modules": "^8.0"
+    "drupal/webform": "^6.2"
   }
 }
 
