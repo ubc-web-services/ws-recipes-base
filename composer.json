@@ -70,6 +70,7 @@
     "drupal/simple_sitemap": "^4.0",
     "drupal/smart_date": "^4.2",
     "drupal/smtp": "*",
+    "drupal/svg_image": "*",
     "drupal/twig_tweak": "*",
     "drupal/view_unpublished": "^1.0",
     "drupal/views_autosubmit": "*",
