@@ -57,6 +57,7 @@
         }
   ],
   "require": {
+    "composer/installers": "^1.7",
     "drupal/core": "^10.4 || ^11",
     "drupal/address": "*",
     "drupal/admin_toolbar": "*",
@@ -120,10 +121,19 @@
     "drupal/webform": "^6.2",
     "enyo/dropzone": "^6.0@beta",
     "exif-js/exif-js": "^2.3",
+    "oomphinc/composer-installers-extender": "^2.0",
     "ubc-web-services/kraken": "^4.0",
     "ubc-web-services/ubc_chosen_style_tweaks": "^1.1",
     "ubc-web-services/ubc_ckeditor_widgets": "^4.0",
-    "ubc-web-services/ubc_d8_config_modules": "^8.0"
+    "ubc-web-services/ubc_d8_config_modules": "^8.0",
+    "wikimedia/composer-merge-plugin": "^2.0"
+  },
+  "config": {
+    "allow-plugins": {
+      "composer/installers": true,
+      "wikimedia/composer-merge-plugin": true,
+      "oomphinc/composer-installers-extender": true
+    }
   }
 }
 
